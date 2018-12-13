@@ -8,7 +8,7 @@
 #   store before running the bootstrap script. Otherwise, Homebrew can't access
 #   the Xcode libraries as the agreement hasn't been accepted yet.
 # - Else
-#   xcode-select −install
+xcode-select −install
 #
 # Reading:
 #
@@ -30,7 +30,6 @@ brew update
 PACKAGES=(
     composer
     git
-    vagrant-completion
     wget
     yarn
 )
@@ -47,6 +46,7 @@ brew tap caskroom/cask
 CASKS=(
     1password
     alfred
+    authy
     dropbox
     firefox
     google-chrome
@@ -55,6 +55,7 @@ CASKS=(
     secure-pipes
     #slack
     spectacle
+    #spotify
     sketch
     sublime-text
     toggl
@@ -123,7 +124,12 @@ defaults write com.apple.screencapture location ~/screenshots
 
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-#Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# Maybe displace notice about installing additional apps not found in brew?
+# https://ashchan.com/projects/gmail-notifr
+
 
 echo "Bootstrapping complete"
+
+echo "Installing Oh-my-zsh"
+#Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
