@@ -116,6 +116,9 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # Disable "natural" scroll
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
+#Enable dark mode
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
+
 #Enable dark menubar and dock only
 defaults write -g NSRequiresAquaSystemAppearance -bool Yes
 
