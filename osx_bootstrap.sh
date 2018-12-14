@@ -138,6 +138,9 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 # Maybe displace notice about installing additional apps not found in brew?
 # https://ashchan.com/projects/gmail-notifr
 
+VVV_DIR=~/dev/vvv
+mkdir -p $VVV_DIR
+git clone -b master git://github.com/Varying-Vagrant-Vagrants/VVV.git $VVV_DIR
 
 echo "Bootstrapping complete"
 
