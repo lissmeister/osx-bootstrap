@@ -7,8 +7,9 @@
 # - If installing full Xcode, it's better to install that first from the app
 #   store before running the bootstrap script. Otherwise, Homebrew can't access
 #   the Xcode libraries as the agreement hasn't been accepted yet.
+#
 # - Else
-xcode-select −install
+#xcode-select −install
 #
 # Reading:
 #
@@ -47,15 +48,17 @@ CASKS=(
     1password
     alfred
     authy
+    bartender
     dropbox
     firefox
     google-chrome
     iterm2
     rambox
     secure-pipes
+    homebrew/cask-versions/sequel-pro-nightly
     #slack
     spectacle
-    #spotify
+    spotify
     sketch
     sublime-text
     toggl
@@ -94,18 +97,23 @@ brew cask install ${FONTS[@]}
 # )
 # sudo gem install ${RUBY_GEMS[@]}
 
+echo "Installing Vagrant plugins"
+VAGRANT_PLUGINS=(
+    vagrant-hostsupdater
+)
+vagrant plugin install ${VAGRANT_PLUGINS[@]}
+
 echo "Installing global npm packages..."
 npm install marked -g
 
 echo "Configuring OSX..."
 
 # Set fast key repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+#defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Require password as soon as screensaver or sleep mode starts
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
-
 # Show filename extensions by default
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
