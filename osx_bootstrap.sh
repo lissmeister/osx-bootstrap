@@ -49,6 +49,7 @@ CASKS=(
     alfred
     authy
     bartender
+    bettertouchtool
     dropbox
     firefox
     google-chrome
