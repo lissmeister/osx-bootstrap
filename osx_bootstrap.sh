@@ -31,6 +31,7 @@ brew update
 PACKAGES=(
     composer
     git
+    rsync
     wget
     yarn
 )
