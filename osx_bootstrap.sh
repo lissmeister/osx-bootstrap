@@ -53,6 +53,7 @@ CASKS=(
     firefox
     google-chrome
     iterm2
+    postman
     rambox
     secure-pipes
     homebrew/cask-versions/sequel-pro-nightly
