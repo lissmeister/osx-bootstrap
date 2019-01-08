@@ -47,6 +47,7 @@ CASKS=(
     1password
     alfred
     authy
+    #bartender
     dropbox
     firefox
     google-chrome
