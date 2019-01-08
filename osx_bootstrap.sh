@@ -7,8 +7,9 @@
 # - If installing full Xcode, it's better to install that first from the app
 #   store before running the bootstrap script. Otherwise, Homebrew can't access
 #   the Xcode libraries as the agreement hasn't been accepted yet.
+#
 # - Else
-xcode-select −install
+#xcode-select −install
 #
 # Reading:
 #
@@ -30,6 +31,7 @@ brew update
 PACKAGES=(
     composer
     git
+    rsync
     wget
     yarn
 )
@@ -48,15 +50,18 @@ CASKS=(
     alfred
     authy
     #bartender
+    bettertouchtool
     dropbox
     firefox
     google-chrome
     iterm2
+    postman
     rambox
     secure-pipes
+    homebrew/cask-versions/sequel-pro-nightly
     #slack
     spectacle
-    #spotify
+    spotify
     sketch
     sublime-text
     toggl
@@ -95,18 +100,23 @@ brew cask install ${FONTS[@]}
 # )
 # sudo gem install ${RUBY_GEMS[@]}
 
+echo "Installing Vagrant plugins"
+VAGRANT_PLUGINS=(
+    vagrant-hostsupdater
+)
+vagrant plugin install ${VAGRANT_PLUGINS[@]}
+
 echo "Installing global npm packages..."
 npm install marked -g
 
 echo "Configuring OSX..."
 
 # Set fast key repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+#defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Require password as soon as screensaver or sleep mode starts
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
-
 # Show filename extensions by default
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
@@ -131,6 +141,9 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 # Maybe displace notice about installing additional apps not found in brew?
 # https://ashchan.com/projects/gmail-notifr
 
+VVV_DIR=~/dev/vvv
+mkdir -p $VVV_DIR
+git clone -b master git://github.com/Varying-Vagrant-Vagrants/VVV.git $VVV_DIR
 
 echo "Bootstrapping complete"
 
