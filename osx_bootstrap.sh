@@ -68,6 +68,7 @@ CASKS=(
     transmit
     tunnelblick
     vagrant
+    visual-studio-code
     virtualbox
     vlc
 )
